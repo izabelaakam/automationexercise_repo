@@ -1,0 +1,5 @@
+{
+    "testFiles": "**/*.{feature,features}",
+    "$schema": "https://on.cypress.io/cypress.schema.json",
+    "projectId": "3vthwf"
+}

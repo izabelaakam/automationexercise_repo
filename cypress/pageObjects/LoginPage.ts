@@ -9,12 +9,19 @@ class LoginPage extends CommonPage {
 
      //Methods section
     
-     enterNameAndEmail(){
+     enterNameAndNewEmail(){
          cy.fixture("testdata").then((newUser) => {
              cy.get('[data-qa="signup-name"]').type(newUser.name);
              cy.get('[data-qa="signup-email"]').click().form();
          });
      }
+
+     enterNameAndExistEmail(){
+        cy.fixture("testdata").then((newUser) => {
+            cy.get('[data-qa="signup-name"]').type(newUser.name);
+            cy.get('[data-qa="signup-email"]').type(newUser.email);
+        });
+    }
     
     }
     

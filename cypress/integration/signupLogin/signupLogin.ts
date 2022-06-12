@@ -33,7 +33,11 @@ And(/The Login to your account is visible$/, () => {
 })
 
 When(/^The user enter name and email address$/, () => {
-    loginPage.enterNameAndEmail();
+    loginPage.enterNameAndNewEmail();
+})
+
+When(/The user enter name and exist email address$/, () =>{
+    loginPage.enterNameAndExistEmail()
 })
 
 And (/^The user clicks on the Signup button$/, () => {
@@ -68,10 +72,30 @@ Then(/The Logged in as username is visible$/, () => {
     signupPage.checkTheUSerIsLogged(signupPage.loggedInAs);
 })
 
-When(/The user enter email and password$/, () => {
+When(/The user enter correct email and correct password$/, () => {
     signupPage.enterEmailAndPassword();
+})
+
+When(/The user enter incorrect email and incorrect password$/, () => {
+    signupPage.enterIncorrectEmailAndPassword();
 })
 
 And(/The user clicks on the Login button$/, () => {
     commonPage.clickElement(signupPage.buttonLogin);
+})
+
+Then(/The notification about incorrect email is displayed$/, () => {
+    commonPage.checkIfTextIsPresented("Your email or password is incorrect!");
+})
+
+When(/The user clicks on the Logout button$/, () => {
+    commonPage.clickXpathElement(commonPage.navigationButtonLogout);
+})
+
+Then(/The user is logged out$/, () =>{
+    commonPage.checkIfXpathElementIsPresent(commonPage.navigationLoginButtonSignup)
+})
+
+Then(/The notification about existing email is displayed$/, () => {
+    commonPage.checkIfTextIsPresented("Email Address already exist!")
 })

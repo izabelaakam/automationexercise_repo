@@ -7,6 +7,7 @@ class CommonPage {
     navigationButtonProducts: string = '//*[text()=" Products"]';
     navigationButtonProducts2: string = '.material-icons card_travel'
     navigationButtonDeleteAccount: string = '//*[text()=" Delete Account"]';
+    navigationButtonLogout: string = '//*[text()=" Logout"]';
     
 
      //Methods section
@@ -25,6 +26,10 @@ class CommonPage {
     
       checkIfTextIsPresented = (text: string) => {
         cy.contains(text).should("exist");
+      }
+
+      checkIfXpathElementIsPresent = (selector: string) => {
+        cy.xpath(selector).should("be.visible")
       }
 
 

@@ -49,5 +49,13 @@ class SignupPage extends CommonPage {
         })
     }
 
+    enterIncorrectEmailAndPassword(){
+        cy.get('[data-qa="login-email"]').type("incorrect@gmail.com");
+        cy.get('[data-qa="login-password"]').type("incorrectPassword");
+    }
+
+
+
+
 }
     export const signupPage = new SignupPage();

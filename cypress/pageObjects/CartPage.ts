@@ -1,13 +1,14 @@
 /// <reference types="Cypress-xpath" />
 import CommonPage from "./CommonPage";
 
-class MainPage extends CommonPage {
+class CartPage extends CommonPage {
+
     //Selectors section
 
 
-     //Methods section
+    //Methods section
     
-    
+
     }
     
-    export const mainPage = new MainPage();
+    export const cartPage = new CartPage();

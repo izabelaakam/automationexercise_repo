@@ -8,6 +8,8 @@ class CommonPage {
     navigationButtonProducts2: string = '.material-icons card_travel'
     navigationButtonDeleteAccount: string = '//*[text()=" Delete Account"]';
     navigationButtonLogout: string = '//*[text()=" Logout"]';
+    navigationButtonContactUs: string = '//*[text()=" Contact us"]';
+    navigationButtonCart: string = '//*[text()=" Cart"]'
     
 
      //Methods section
@@ -30,6 +32,10 @@ class CommonPage {
 
       checkIfXpathElementIsPresent = (selector: string) => {
         cy.xpath(selector).should("be.visible")
+      }
+
+      checkElementIsDisplayed = (selector: string) => {
+        cy.get(selector).should("be.visible");
       }
 
 

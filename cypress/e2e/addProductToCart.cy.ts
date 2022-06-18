@@ -9,25 +9,23 @@ import { productsPage } from "../pageObjects/ProductsPage";
 const commonPage = new CommonPage;
 
 describe('Cart page tests', () => {
-
-    it('Verify Subscription in Cart page', () =>{
+    beforeEach(() => {
         cy.visit("http://automationexercise.com/");
-        commonPage.clickXpathElement(commonPage.navigationButtonCart);
-        commonPage.pageUrlValidation("/view_cart");
-        homePage.sendSubscription();
-        homePage.checkSuccessSubsciptionAlert();
     })
 
-    it.only('Add Products in Cart', () => {
-        cy.visit("http://automationexercise.com/");
+    it.only('Add 2 Products to Cart', () => {
         commonPage.clickXpathElement(commonPage.navigationButtonProducts);
         commonPage.pageUrlValidation("/products");
         commonPage.checkElementIsDisplayed(productsPage.containerProductItems);
         productsPage.addFirstItemToCart();
         commonPage.checkElementIsDisplayed(productsPage.modalSuccessAddToCart);
+        productsPage.continueShopping();
+        productsPage.addSecondItemToCart();
+        commonPage.checkElementIsDisplayed(productsPage.modalSuccessAddToCart);
         productsPage.goToCart()
         commonPage.pageUrlValidation("/view_cart");
         commonPage.checkElementIsDisplayed('#product-1');
+        commonPage.checkElementIsDisplayed('#product-2');
     })
 })
 

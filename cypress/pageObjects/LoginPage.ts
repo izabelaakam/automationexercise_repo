@@ -14,6 +14,7 @@ class LoginPage extends CommonPage {
              cy.get('[data-qa="signup-name"]').type(newUser.name);
              cy.get('[data-qa="signup-email"]').click().form();
          });
+         return this;
      }
 
      enterNameAndExistEmail(){
@@ -21,6 +22,7 @@ class LoginPage extends CommonPage {
             cy.get('[data-qa="signup-name"]').type(newUser.name);
             cy.get('[data-qa="signup-email"]').type(newUser.email);
         });
+        return this;
     }
     
     }

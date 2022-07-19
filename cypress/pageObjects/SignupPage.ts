@@ -21,6 +21,7 @@ class SignupPage extends CommonPage {
             cy.get('[data-qa="years"]').select('1980').should('have.value', '1980');
             cy.get('[type="checkbox"]').check();
         });
+        return this;
     }
 
     fillAddressInformation(){
@@ -33,13 +34,15 @@ class SignupPage extends CommonPage {
             cy.get('[data-qa="city"]').type(newUser.city);
             cy.get('[data-qa="zipcode"]').type(newUser.zipcode);
             cy.get('[data-qa="mobile_number"]').type(newUser.mobileNumber);
-        });    
+        }); 
+        return this;   
     }
 
     checkTheUSerIsLogged (selector: string) {
         cy.fixture("testdata").then((newUser) => {
             cy.xpath(selector).invoke("text").should('contain', newUser.name);          
         });
+        return this;
     }
 
     enterEmailAndPassword(){
@@ -47,11 +50,13 @@ class SignupPage extends CommonPage {
             cy.get('[data-qa="login-email"]').type(loginUser.email);
             cy.get('[data-qa="login-password"]').type(loginUser.password);
         })
+        return this;
     }
 
     enterIncorrectEmailAndPassword(){
         cy.get('[data-qa="login-email"]').type("incorrect@gmail.com");
         cy.get('[data-qa="login-password"]').type("incorrectPassword");
+        return this;
     }
 
 

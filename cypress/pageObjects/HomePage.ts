@@ -14,10 +14,12 @@ class HomePage extends CommonPage {
      sendSubscription(){
         cy.get(this.inputSubsection).type("XT2Afc@test.com");
         cy.get(this.buttonSendSubsection).click({ force: true });
+        return this;
      }
 
      checkSuccessSubsciptionAlert(){
         cy.get(this.alertSuccessSubsciption).contains("You have been successfully subscribed!");
+        return this;
      }
     
     }

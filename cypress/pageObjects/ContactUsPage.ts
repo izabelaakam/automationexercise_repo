@@ -22,6 +22,7 @@ class ContactUsPage extends CommonPage {
             cy.get('[data-qa="email"]').type("XT2Afc@test.com");
             cy.get('[data-qa="subject"]').type("Subject");
             cy.get('[data-qa="message"]').type("message long text for message for contact us form");
+            return this;
     }
 
     }
